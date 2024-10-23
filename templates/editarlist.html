@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Inscritos</title>
+</head>
+<body>
+    <h1>Editar inscritos</h1>
+    <form action="{{url_for('editarlist', id=inscrito.id)}}" method="POST">
+        Fecha: <input type="date" name="fecha" value="{{inscrito['fecha']}}"> <br>
+        Nombre: <input type="text" name="nombre" value="{{inscrito['nombre']}}"><br>
+        Apellidos: <input type="text" name="apellidos" value="{{inscrito['apellidos']}}"><br>
+        Turno:
+        <input type="radio" name="turno" value="Mañana" {% if inscrito['turno'] == 'Mañana' %}checked{% endif %}> Mañana
+        <input type="radio" name="turno" value="Tarde" {% if inscrito['turno'] == 'Tarde' %}checked{% endif %}> Tarde
+        <input type="radio" name="turno" value="Noche" {% if inscrito['turno'] == 'Noche' %}checked{% endif %}> Noche
+        <br>
+        Inteligencia Artificial: <input type="checkbox" name="artificial" value="Sí" {% if inscrito['artificial'] == 'Sí' %}checked{% endif %}><br>
+        Machine Learning: <input type="checkbox" name="profundo" value="Sí" {% if inscrito['profundo'] == 'Sí' %}checked{% endif %}><br>
+        Simulación: <input type="checkbox" name="simulacion" value="Sí" {% if inscrito['simulacion'] == 'Sí' %}checked{% endif %}><br>
+        Robótica: <input type="checkbox" name="robotica" value="Sí" {% if inscrito['robotica'] == 'Sí' %}checked{% endif %}><br>
+        <br>
+        <input type="submit" value="Guardar">
+    </form>
+</body>
+</html>
